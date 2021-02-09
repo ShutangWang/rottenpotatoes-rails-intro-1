@@ -10,8 +10,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     
     if !params.has_key?(:ratings) && !session.key?(:ratings)
-      @ratings_to_show = []
-#       @ratings_to_show = @all_ratings
+      @ratings_to_show = @all_ratings
     elsif !params.has_key?(:ratings) && session.key?(:ratings)
       @ratings_to_show = session[:ratings]
       @ratings_to_show_hash = Hash[@ratings_to_show.collect {|key| [key, '1']}]
